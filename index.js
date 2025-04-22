@@ -26,7 +26,7 @@ let series = [
 ]
 
 const server = http.createServer((req, res) => {
-    
+
     if (req.url === "/") {
         res.writeHead(200, { "content-type": "text/html" });
         res.end("WELCOME TO THE DEFAULT, PLEASE FEEL FREE TO NAVIGATE")
@@ -100,22 +100,22 @@ const server = http.createServer((req, res) => {
                 res.write("404")
                 res.end("<h1>REQUEST METHOD NOT FOUND</h1>")
         }
-    } else if (req.url==="/series"){
-        switch(req.method){
+    } else if (req.url === "/series") {
+        switch (req.method) {
             case "GET":
                 res.writeHead(200, { "content-type": "text/html" });
                 res.end(JSON.stringify(series))
                 break;
             case "POST":
                 res.writeHead(200, { "content-type": "text/html" });
-                series.push([{id:6, name:"The 100",genre:"Adventure/Drama"}])
+                series.push([{ id: 6, name: "The 100", genre: "Adventure/Drama" }])
                 res.end(JSON.stringify(series))
                 break;
             case "PUT":
                 res.writeHead(200, { "content-type": "text/html" });
-                for (let i = 0; i<series.length;i++){
-                    if (series[3].id===3){
-                        series[i].genre="ANIME / SURVIVAL"
+                for (let i = 0; i < series.length; i++) {
+                    if (series[3].id === 3) {
+                        series[i].genre = "ANIME / SURVIVAL"
                     }
                 }
                 res.end(JSON.stringify(series))
@@ -123,8 +123,13 @@ const server = http.createServer((req, res) => {
             case "DELETE":
                 res.writeHead(200, { "content-type": "text/html" });
                 series.pop()
+                break;
+            default:
+                res.writeHead(404, { "content-type": "text/html" });
+                res.write("404")
+                res.end("<h1>REQUEST METHOD NOT FOUND</h1>")
         }
-    } else{
+    } else {
         res.write("<h1>REQUEST URL NOT FOUND</h1>")
         res.end("404")
     }
