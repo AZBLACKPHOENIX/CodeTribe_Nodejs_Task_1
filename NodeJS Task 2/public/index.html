@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mock Media Server API Docs</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+    h1 { color: #333; }
+    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    section { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Mock Media Server API</h1>
+  <p>This server allows you to create, read, update, and delete user data stored in a JSON file.</p>
+
+  <section>
+    <h2>Endpoints</h2>
+
+    <h3>POST /</h3>
+    <p>Adds a new user.</p>
+    <strong>JSON Format:</strong>
+    <pre><code>{
+  "firstname": "Phoenix",
+  "surname": "Sage",
+  "age": 25,
+  "id": "123"
+}</code></pre>
+
+    <h3>PUT /id</h3>
+    <p>Updates an existing user.</p>
+    <strong>JSON Format:</strong>
+    <pre><code>{
+  "id": "123",
+  "firstname": "Johnny",
+  "age": 26
+}</code></pre>
+
+    <h3>DELETE /id</h3>
+    <p>Deletes a user by ID.</p>
+    <strong>JSON Format:</strong>
+    <pre><code>{
+  "id": "123"
+}</code></pre>
+
+    <h3>GET /</h3>
+    <p>Returns this documentation page.</p>
+  </section>
+
+  <section>
+    <h2>Notes</h2>
+    <ul>
+      <li>All data is stored in <code>user_db.json</code></li>
+      <li>Make sure to provide all required fields when adding or updating users</li>
+      <li>Use tools like Postman or curl to interact with the API</li>
+    </ul>
+  </section>
+</body>
+</html>
